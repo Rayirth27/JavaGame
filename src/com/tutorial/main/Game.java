@@ -26,32 +26,33 @@ public class Game extends Canvas implements Runnable{
 		new Window(WIDTH, HEIGHT, "Ray's First Attempt!",this);
 		
 		hud = new HUD();
-		//om mama 
+		
 		r = new Random();
 		
 		
 		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); /*To create 
 											the object in the GAME.. PLAY AROUND WITH THE VALUES*/
-		for(int i =1; i <= 5; i++)
-		handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
+		
+		for(int i = 1; i <= 10; i++) //Number of Enemies
+			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
 	
 	}
 	public synchronized void start() {
-		thread =new Thread(this); 
+		thread =new Thread(this);
 		thread.start();
 		running=true; //(HERE)running says that,is it running or NOT?, that is, is the Thread ON or NOT?
 	}
 	
 	public synchronized void stop(){ // try and catch in brief work like if-else.. if its working (then in try) if not (then in catch)
 		try{
-			thread.join();// it is just killing off the thread it's stopping it
+			thread.join();// it is just killing the thread - it's stopping it
 			running=false;
 		}catch(Exception e) {
 			e.printStackTrace();// Run and err bug and tell us why it couldn't produce a result
 		}
 	}
 	public void run() { // Heartbeat Of the Game( GAME LOOP )
-		this.requestFocus(); /* you don;t need to click on the program's screen to work on it
+		this.requestFocus(); /* you don't need to click on the program's screen to work on it
 							as soon as the program runs the working of keyboard shifts 
 								to the program*/
 		long lastTime = System.nanoTime();
@@ -106,8 +107,7 @@ public class Game extends Canvas implements Runnable{
 		bs.show();
 	}
 
-	public static int clamp(int var, int min, int max) { /* So that the object(Player) 
-															does not go beyond the screen
+	public static int clamp(int var, int min, int max) { /* So that the object(Player) does not go beyond the screen
 															IN SHORT IT IS A -
 															STAY WITHIN THE LIMTS FUCTION!*/
 		if(var >= max)

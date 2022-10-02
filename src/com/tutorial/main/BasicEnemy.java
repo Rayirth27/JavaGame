@@ -30,8 +30,8 @@ public class BasicEnemy extends GameObject{
 		if(x <= 0 || x >= Game.WIDTH-16 ) velX *= -1;/* helping the object to revert back 
 								after it hits the ceiling by changing its sign*/												 
 	
-		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.02f, handler));
-		handler.addObject(new Trail(x, y, ID.Trail, Color.blue, 16, 16, 0.02f, handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16,16, 0.02f, handler));
+		handler.addObject(new Trail(x, y, ID.Trail, Color.blue,16,16, 0.02f, handler));
 	}
 
 	public void render(Graphics g) {
