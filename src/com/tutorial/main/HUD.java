@@ -8,7 +8,7 @@ public class HUD {
 	private int greenValue = 255; //red-green-blue(rgb) values go from (BLACK)0 to 255.
 	
 	public void tick() {
-		HEALTH = Game.clamp( HEALTH, 0, 200);// SO THAT THE HEATH does not go beyond the meter
+		HEALTH = Game.clamp( HEALTH, 0, 100);// SO THAT THE HEATH does not go beyond the meter
 		greenValue = Game.clamp(greenValue, 0, 255);
 		
 		greenValue = HEALTH*2; 
